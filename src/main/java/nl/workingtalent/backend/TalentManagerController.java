@@ -10,7 +10,7 @@ public class TalentManagerController {
 	@Autowired
 	private TalentManagerService service;
 	
-	@RequestMapping("talentmanger/all")
+	@RequestMapping("talentmanager/all")
 	public Iterable<TalentManager> findAll(){
 		return service.vindAlleTalentManagers();	
 	}
