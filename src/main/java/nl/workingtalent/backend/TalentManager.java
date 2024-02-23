@@ -36,7 +36,7 @@ public class TalentManager {
 		public void setLeeftijd(int leeftijd) {
 			this.leeftijd = leeftijd;
 		}
-		public boolean isTrainees() {
+		public boolean getTrainees() {
 			return trainees;
 		}
 		public void setTrainees(boolean trainees) {
