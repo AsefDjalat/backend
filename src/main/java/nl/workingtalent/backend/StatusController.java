@@ -25,7 +25,6 @@ public class StatusController {
 		Trainee trainee = new Trainee();
 		trainee.setVoornaam("Mario");
 		trainee.setLeeftijd(36);
-		trainee.setLovesJava(true);
 		return trainee;
 	}
 }

@@ -3,12 +3,7 @@ package nl.workingtalent.backend;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(maxAge = 3600)
@@ -38,18 +33,24 @@ public class TraineeController {
 		Optional<Trainee> optional = service.findById(id);
 		if (optional.isPresent()) { // kijkt of the de optional bestaat!
 			Trainee dbTrainee = optional.get(); //haal de trainee uit de optional
-			
-			//stap 2- updaten/aanpassen
+
+			//stap 2- update/aanpassen
 			dbTrainee.setVoornaam(updateTrainee.getVoornaam());
+			dbTrainee.setAchternaam(updateTrainee.getAchternaam());
 			dbTrainee.setLeeftijd(updateTrainee.getLeeftijd());
-		//stap 3 -opslaan
-			
+			dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
+			dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
+			dbTrainee.setBio(updateTrainee.getBio());
+
+			//stap 3 -opslaan
+
 			service.update(dbTrainee);
 		}
-	
-		
-		
-		
 	}
-	
+	@DeleteMapping(value = "trainee/{id}/delete")
+	public void delete(@PathVariable("id") long id) {
+		service.delete(id);
+		System.out.println("The Trainee with an ID" + id + "has been deleted");
+	}
+
 }
