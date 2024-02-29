@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 //import jakarta.persistence.OneToOne;
 
 
@@ -27,8 +28,16 @@ public class Vacature {
 	private String uitStroomrichting;
 	
 	private int aantalUren;
-//	@OneToOne
-//	private Bedrijf bedrijf;
+	@OneToOne
+	private Bedrijf bedrijf;
+
+	public Bedrijf getBedrijf() {
+		return bedrijf;
+	}
+
+	public void setBedrijf(Bedrijf bedrijf) {
+		this.bedrijf = bedrijf;
+	}
 
 	public long getId() {
 		return id;
