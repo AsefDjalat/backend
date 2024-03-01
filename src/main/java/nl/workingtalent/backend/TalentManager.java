@@ -12,23 +12,52 @@ public class TalentManager {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id;
+		
 		@Column(length = 100, nullable = false)
-		private String naam;
+		private String voornaam;
+		
+		@Column(length = 100, nullable = false)
+		private String achternaam;
+		
+		@Column(length = 100)
+		private String email;
+		
+		@Column(length = 100)
+		private String telefoonnummer;
+		
 		@Column(nullable = false)
 		private int leeftijd;
+		
 		@Column()
 		private boolean trainees;
 		public long getId() {
 			return id;
 		}
-		public void setId(long id) {
-			this.id = id;
+		
+		
+		public String getVoornaam() {
+			return voornaam;
 		}
-		public String getNaam() {
-			return naam;
+		public void setVoornaam(String voornaam) {
+			this.voornaam = voornaam;
 		}
-		public void setNaam(String naam) {
-			this.naam = naam;
+		public String getAchternaam() {
+			return achternaam;
+		}
+		public void setAchternaam(String achternaam) {
+			this.achternaam = achternaam;
+		}
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+		}
+		public String getTelefoonnummer() {
+			return telefoonnummer;
+		}
+		public void setTelefoonnummer(String telefoonnummer) {
+			this.telefoonnummer = telefoonnummer;
 		}
 		public int getLeeftijd() {
 			return leeftijd;
@@ -36,11 +65,14 @@ public class TalentManager {
 		public void setLeeftijd(int leeftijd) {
 			this.leeftijd = leeftijd;
 		}
-		public boolean getTrainees() {
+		public boolean isTrainees() {
 			return trainees;
 		}
 		public void setTrainees(boolean trainees) {
 			this.trainees = trainees;
 		}
-		
+		public void setId(long id) {
+			this.id = id;
+		}
+				
 }
