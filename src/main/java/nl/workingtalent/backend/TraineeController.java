@@ -3,18 +3,13 @@ package nl.workingtalent.backend;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(maxAge = 3600)
 public class TraineeController {
 	
-	@Autowired
+  	@Autowired
 	private TraineeService service;
 	
 	@RequestMapping("trainee/all")
@@ -38,18 +33,24 @@ public class TraineeController {
 		Optional<Trainee> optional = service.findById(id);
 		if (optional.isPresent()) { // kijkt of the de optional bestaat!
 			Trainee dbTrainee = optional.get(); //haal de trainee uit de optional
-			
-			//stap 2- updaten/aanpassen
-			dbTrainee.setVoornaam(updateTrainee.getVoornaam());
-			dbTrainee.setLeeftijd(updateTrainee.getLeeftijd());
-		//stap 3 -opslaan
-			
+
+			//stap 2- update/aanpassen
+			if (updateTrainee.getVoornaam() != null) dbTrainee.setVoornaam(updateTrainee.getVoornaam());
+			if (updateTrainee.getAchternaam() != null) dbTrainee.setAchternaam(updateTrainee.getAchternaam());
+			if (updateTrainee.getLeeftijd() != 0) dbTrainee.setLeeftijd(updateTrainee.getLeeftijd());
+			if (updateTrainee.getSpecialisatie() != null) dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
+			if (updateTrainee.getWoonplaats() != null) dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
+			if (updateTrainee.getBio() != null) dbTrainee.setBio(updateTrainee.getBio());
+
+			//stap 3 -opslaan
+
 			service.update(dbTrainee);
 		}
-	
-		
-		
-		
 	}
-	
+	@DeleteMapping(value = "trainee/{id}/delete")
+	public void delete(@PathVariable("id") long id) {
+		service.delete(id);
+		System.out.println("The Trainee with an ID" + id + "has been deleted");
+	}
+
 }
