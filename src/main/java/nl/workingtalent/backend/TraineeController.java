@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(maxAge = 3600)
 public class TraineeController {
 	
-	@Autowired
+  	@Autowired
 	private TraineeService service;
 	
 	@RequestMapping("trainee/all")
@@ -35,12 +35,12 @@ public class TraineeController {
 			Trainee dbTrainee = optional.get(); //haal de trainee uit de optional
 
 			//stap 2- update/aanpassen
-			dbTrainee.setVoornaam(updateTrainee.getVoornaam());
-			dbTrainee.setAchternaam(updateTrainee.getAchternaam());
-			dbTrainee.setLeeftijd(updateTrainee.getLeeftijd());
-			dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
-			dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
-			dbTrainee.setBio(updateTrainee.getBio());
+			if (updateTrainee.getVoornaam() != null) dbTrainee.setVoornaam(updateTrainee.getVoornaam());
+			if (updateTrainee.getAchternaam() != null) dbTrainee.setAchternaam(updateTrainee.getAchternaam());
+			if (updateTrainee.getLeeftijd() != 0) dbTrainee.setLeeftijd(updateTrainee.getLeeftijd());
+			if (updateTrainee.getSpecialisatie() != null) dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
+			if (updateTrainee.getWoonplaats() != null) dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
+			if (updateTrainee.getBio() != null) dbTrainee.setBio(updateTrainee.getBio());
 
 			//stap 3 -opslaan
 
