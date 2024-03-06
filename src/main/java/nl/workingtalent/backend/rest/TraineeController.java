@@ -1,9 +1,12 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.rest;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import nl.workingtalent.backend.model.Trainee;
+import nl.workingtalent.backend.persist.TraineeService;
 
 @RestController
 @CrossOrigin(maxAge = 3600)
