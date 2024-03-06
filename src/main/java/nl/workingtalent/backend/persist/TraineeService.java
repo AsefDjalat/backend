@@ -1,9 +1,11 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.persist;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import nl.workingtalent.backend.model.Trainee;
 
 @Service
 public class TraineeService {
