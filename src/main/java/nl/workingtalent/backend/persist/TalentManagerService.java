@@ -13,7 +13,7 @@ public class TalentManagerService {
 	@Autowired
 	private ITalentManagerRepository repo;
 	
-	public Iterable<TalentManager> vindAlleTalentManagers(){
+	public Iterable<TalentManager> findAllTalentmanagers(){
 		//raadplegen van de database!
 		 return repo.findAll();
 	}
