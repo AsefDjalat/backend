@@ -1,4 +1,4 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.rest;
 
 import java.util.Optional;
 
@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import nl.workingtalent.backend.model.Vacature;
+import nl.workingtalent.backend.persist.VacatureService;
 @RestController
 public class VacatureController {
 	@Autowired
@@ -65,4 +68,14 @@ public void update(@PathVariable("id") long id, @RequestBody Vacature updateVaca
 		
 		
 	}
+@RequestMapping(method = RequestMethod.DELETE, value="vacature/{id}/delete")
+public void delete(@PathVariable("id") long id) {
+	
+	Optional<Vacature> optional = service.findById(id);
+	
+	if(optional.isPresent()) {
+	
+		service.delete(id);
+	}
+}
 }

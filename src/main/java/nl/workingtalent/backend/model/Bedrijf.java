@@ -1,4 +1,4 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.model;
 
 import jakarta.persistence.*;
 

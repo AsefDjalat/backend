@@ -1,7 +1,10 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import nl.workingtalent.backend.model.Bedrijf;
+import nl.workingtalent.backend.persist.BedrijfService;
 
 import java.util.Optional;
 
