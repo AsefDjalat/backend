@@ -38,4 +38,9 @@ public class FotoService {
 		return foto;
 	}
 
+	public void update(Foto newFoto) {
+		// TODO Auto-generated method stub
+		repo.save(newFoto);
+	}
+
 }
