@@ -51,6 +51,6 @@ public class BedrijfController {
     @DeleteMapping(value = "bedrijf/{id}/delete")
     public void deleteBedrijfById(@PathVariable("id") long id) {
         service.deleteBedrijfById(id);
-        System.out.println("Bedrijf ID "+ id + " was DELETED!");
+        System.out.println(" ID:"+ id + " was DELETED!");
     }
 }
