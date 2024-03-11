@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import nl.workingtalent.backend.model.Foto;
 import nl.workingtalent.backend.persist.FotoService;
 
 @RestController
+@CrossOrigin(maxAge = 3600)
 public class FotoController {
 	@Autowired
 	private FotoService fotoService;
