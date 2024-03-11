@@ -1,7 +1,9 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import nl.workingtalent.backend.model.Trainee;
 
 @RestController
 public class StatusController {
@@ -25,7 +27,6 @@ public class StatusController {
 		Trainee trainee = new Trainee();
 		trainee.setVoornaam("Mario");
 		trainee.setLeeftijd(36);
-		trainee.setLovesJava(true);
 		return trainee;
 	}
 }
