@@ -6,10 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 enum Status {
-	Matched,
+
 	Beschikbaar,
 	Gesprek,
-	Unmatched
+	Geplaatst
 };
 
 
