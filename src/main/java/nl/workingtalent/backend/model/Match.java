@@ -1,9 +1,10 @@
-package nl.workingtalent.backend;
+package nl.workingtalent.backend.model;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "trainee_match")
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +18,6 @@ public class Match {
     @JoinColumn(name = "trainee_id")
     private Trainee trainee;
 
-    @Column(nullable = false)
     private LocalDateTime timestamp;
 
     public long getId() {
