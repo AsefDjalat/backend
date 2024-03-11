@@ -29,9 +29,19 @@ public class Vacature {
 	private int aantalUren;
 	@OneToOne
 	private Bedrijf bedrijf;
+	
+	private StatusVacature deStatusVacature = StatusVacature.OPEN;
 
 	public Bedrijf getBedrijf() {
 		return bedrijf;
+	}
+
+	public StatusVacature getDeStatusVacature() {
+		return deStatusVacature;
+	}
+
+	public void setDeStatusVacature(StatusVacature deStatusVacature) {
+		this.deStatusVacature = deStatusVacature;
 	}
 
 	public void setBedrijf(Bedrijf bedrijf) {

@@ -20,6 +20,7 @@ public class Foto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
+	
 	private String fileName;
 	
 	private String contentType;

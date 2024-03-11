@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import nl.workingtalent.backend.model.StatusVacature;
 import nl.workingtalent.backend.model.Vacature;
 import nl.workingtalent.backend.persist.VacatureService;
 @RestController
@@ -20,6 +21,9 @@ public class VacatureController {
 	public Iterable<Vacature> findAll(){
 		return service.vindAlleVacature();	
 	}
+	
+
+	
 	@RequestMapping("vacature/{id}")
 public Optional<Vacature> findById(@PathVariable("id") long id){
 	return service.findById(id);
@@ -78,4 +82,7 @@ public void delete(@PathVariable("id") long id) {
 		service.delete(id);
 	}
 }
+
+
+
 }
