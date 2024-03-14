@@ -1,5 +1,7 @@
 package nl.workingtalent.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +34,7 @@ public class Vacature {
 	private Bedrijf bedrijf;
 	
 	private StatusVacature deStatusVacature = StatusVacature.OPEN;
-
+	
 	public Bedrijf getBedrijf() {
 		return bedrijf;
 	}
