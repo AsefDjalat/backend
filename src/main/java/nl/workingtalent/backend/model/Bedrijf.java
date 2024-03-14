@@ -1,5 +1,7 @@
 package nl.workingtalent.backend.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +21,9 @@ public class Bedrijf {
 
     @Column(length = 254)
     private String bio;
+    
+    @OneToMany(mappedBy = "bedrijf", cascade = CascadeType.ALL)
+    private List<Vacature> vacatures;
 
     public long getId() {
         return id;
