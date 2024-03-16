@@ -1,5 +1,6 @@
 package nl.workingtalent.backend.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,18 @@ public class TraineeController {
 		service.delete(id);
 		System.out.println("The Trainee with an ID" + id + "has been deleted");
 	}
+	
+	@RequestMapping("talentmanager/trainees/{talentManagerId}")
+	public List<Trainee> getAlltraineesByTalentManagerId(@PathVariable("talentManagerId")long talentManagerId){
+		return service.getAlltraineesByTalentManagerId(talentManagerId);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value= "/{talentManager_Id}/talentManager/{trainee_Id}")
+	public Trainee createTraineeForTalentManager(@PathVariable("talentManager_Id") long talentManagerId, @PathVariable("trainee_Id") long traineeId) {
+		
+	    return service.createTraineeForTalentManager(talentManagerId, traineeId);
+	}
+	
+	
 
 }

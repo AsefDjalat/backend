@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 
 
@@ -26,6 +27,15 @@ public class Trainee {
 	@Column(nullable = false)
 	private int leeftijd;
 	
+	@ManyToOne
+	 private TalentManager talentManager;
+	
+	public TalentManager getTalentManager() {
+		return talentManager;
+	}
+	public void setTalentManager(TalentManager talentManager) {
+		this.talentManager = talentManager;
+	}
 	public long getId() {
 		return id;
 	}
