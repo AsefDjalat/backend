@@ -1,9 +1,18 @@
 package nl.workingtalent.backend.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import nl.workingtalent.backend.model.StatusVacature;
 import nl.workingtalent.backend.model.Vacature;
@@ -78,6 +87,16 @@ public void delete(@PathVariable("id") long id) {
 	
 		service.delete(id);
 	}
+}
+
+@RequestMapping("bedrijf/vacature/{bedrijd_Id}")
+public List<Vacature> getVacaturesByBedrijfId(@PathVariable("bedrijd_Id") long bedrijfId) {
+      return service.findByBedrijfId(bedrijfId);
+ }
+
+@RequestMapping(method = RequestMethod.POST, value= "/bedrijf/{id}/createVacature")
+public Vacature createVacatureForBedrijf(@PathVariable("id") long bedrijfId, @RequestBody Vacature vacature) {
+    return service.createVacatureForBedrijf(bedrijfId, vacature);
 }
 
 
