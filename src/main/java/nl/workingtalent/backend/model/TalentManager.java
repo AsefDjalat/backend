@@ -1,10 +1,17 @@
 package nl.workingtalent.backend.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class TalentManager {
@@ -28,6 +35,18 @@ public class TalentManager {
 		@Column(nullable = false)
 		private int leeftijd;
 		
+		@OneToMany
+
+		 private List<Trainee> trainee;
+		
+		public List<Trainee> getTrainee() {
+			return trainee;
+		}
+
+
+		public void setTrainee(List<Trainee> trainee) {
+			this.trainee = trainee;
+		}
 		@Column()
 		private boolean trainees;
 		public long getId() {
@@ -74,5 +93,5 @@ public class TalentManager {
 		public void setId(long id) {
 			this.id = id;
 		}
-				
+			
 }
