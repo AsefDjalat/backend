@@ -53,57 +53,6 @@ public class TraineeService {
 		repo.deleteById(id);
 	}
 
-	public List<Trainee> getAlltraineesByTalentManagerId(long talentManagerId) {
-		// TODO Auto-generated method stub
-		 TalentManager talentManager = talentManagerRepository.findById(talentManagerId)
-	                .orElse(null);
-
-	        if (talentManager == null) {
-	            System.out.println("TalentManager with ID " + talentManagerId + " does not exist.");
-	            return Collections.emptyList();
-	        }
-
-	        List<Trainee> trainees = talentManager.getTrainee();
-	        if (trainees.isEmpty()) {
-	            System.out.println("TalentManager with ID " + talentManagerId + " has no trainees.");
-	        }
-		return repo.findAllTraineesByTalentManagerId(talentManagerId);
-	}
-
-	public Trainee createTraineeForTalentManager(long talentManagerId, long traineeId) {
-		// TODO Auto-generated method stub
-		
-		Optional<TalentManager> optionalTalentManager = talentManagerRepository.findById(talentManagerId);
-		
-        if(optionalTalentManager.isPresent()) {
-        	TalentManager dBTalentManager = optionalTalentManager.get();
-        	
-        	 if (dBTalentManager.getTrainee().isEmpty()) {
-                 System.out.println("TalentManager with ID " + talentManagerId + " has no trainees.");
-             } else {
-               
-                 for (Trainee trainee : dBTalentManager.getTrainee()) {
-                     if (trainee.getId() == traineeId) {
-                         System.out.println("TalentManager with ID " + talentManagerId + " already has Trainee with ID " + traineeId);
-                         return null;
-                     }
-                 }
-             }
-        	  Optional<Trainee> optionalTrainee = repo.findById(traineeId);
-              if(optionalTrainee.isPresent()) {
-              	Trainee dbTrainee = optionalTrainee.get();
-              	dbTrainee.setTalentManager(dBTalentManager);
-              	return repo.save(dbTrainee);
-              }else {
-                  System.out.println("Trainee with ID " + traineeId + " does not exist.");
-                  return null;
-              }
-        }else {
-            System.out.println("TalentManager with ID " + talentManagerId + " does not exist.");
-            return null;
-        }   
-      
-	}
 
 	public  ResponseEntity<byte[]>  getFotoByTraineeId(long traineeId) {
 		// TODO Auto-generated method stub
@@ -154,9 +103,9 @@ public class TraineeService {
 	               
 	               repo.save(dBTrainee);
 	         
-//	               fotoTrainee.setTrainee(dBTrainee);
+
 	             
-	               
+      
 	               return fotoTrainee;
 	            }
 				

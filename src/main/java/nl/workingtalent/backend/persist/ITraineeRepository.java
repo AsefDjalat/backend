@@ -8,7 +8,7 @@ import nl.workingtalent.backend.model.Trainee;
 
 public interface ITraineeRepository extends CrudRepository<Trainee, Long> {
 
-	List<Trainee> findAllTraineesByTalentManagerId(long talentManagerId);
+//	List<Trainee> findAllTraineesByTalentManagerId(long talentManagerId);
 	
 
 }

@@ -35,8 +35,8 @@ public class TalentManager {
 		@Column(nullable = false)
 		private int leeftijd;
 		
-		@OneToMany(mappedBy = "talentManager")
-		@JsonIgnore
+		@OneToMany
+
 		 private List<Trainee> trainee;
 		
 		public List<Trainee> getTrainee() {

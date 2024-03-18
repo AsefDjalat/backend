@@ -28,8 +28,7 @@ public class Trainee {
 	@Column(nullable = false)
 	private int leeftijd;
 	
-	@ManyToOne
-	 private TalentManager talentManager;
+
 	
 	@OneToOne
 	private Foto foto;
@@ -40,12 +39,7 @@ public class Trainee {
 	public void setFoto(Foto foto) {
 		this.foto = foto;
 	}
-	public TalentManager getTalentManager() {
-		return talentManager;
-	}
-	public void setTalentManager(TalentManager talentManager) {
-		this.talentManager = talentManager;
-	}
+
 	public long getId() {
 		return id;
 	}

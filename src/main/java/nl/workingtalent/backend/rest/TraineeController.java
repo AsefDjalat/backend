@@ -60,16 +60,8 @@ public class TraineeController {
 		System.out.println("The Trainee with an ID" + id + "has been deleted");
 	}
 	
-	@RequestMapping("talentmanager/trainees/{talentManagerId}")
-	public List<Trainee> getAlltraineesByTalentManagerId(@PathVariable("talentManagerId")long talentManagerId){
-		return service.getAlltraineesByTalentManagerId(talentManagerId);
-	}
-	
-	@RequestMapping(method = RequestMethod.POST, value= "/{talentManager_Id}/talentManager/{trainee_Id}")
-	public Trainee createTraineeForTalentManager(@PathVariable("talentManager_Id") long talentManagerId, @PathVariable("trainee_Id") long traineeId) {
-		
-	    return service.createTraineeForTalentManager(talentManagerId, traineeId);
-	}
+
+
 	
 	@RequestMapping("trainee/{traineeId}/foto")
 	public ResponseEntity<byte[]> getFotoByTraineeId(@PathVariable("traineeId") long traineeId) {

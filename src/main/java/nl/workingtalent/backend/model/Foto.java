@@ -34,16 +34,16 @@ public class Foto {
 	@Lob
 	private byte[] data;
 	
-//	@OneToOne(mappedBy = "foto")
-//	@JsonIgnore
-//	private Trainee trainee;
+
+
+
 	
-//	public Trainee getTrainee() {
-//		return trainee;
-//	}
-//	public void setTrainee(Trainee trainee) {
-//		this.trainee = trainee;
-//	}
+
+
+
+
+
+
 	public byte[] getData() {
 		return data;
 	}
