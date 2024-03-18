@@ -53,4 +53,11 @@ public class BedrijfController {
         service.deleteBedrijfById(id);
         System.out.println(" ID:"+ id + " was DELETED!");
     }
+    @GetMapping("/felixVoorbeeld")
+    public Bedrijf felixVoorbeeld() {
+    	Bedrijf bedrijf = new Bedrijf();
+    	bedrijf.setId(3);
+    	bedrijf.setNaamBedrijf("felix");
+    	return bedrijf;
+    	}
 }

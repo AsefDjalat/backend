@@ -1,10 +1,14 @@
 package nl.workingtalent.backend.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import nl.workingtalent.backend.model.Foto;
 import nl.workingtalent.backend.model.Trainee;
 import nl.workingtalent.backend.persist.TraineeService;
 
@@ -56,5 +60,22 @@ public class TraineeController {
 		service.delete(id);
 		System.out.println("The Trainee with an ID" + id + "has been deleted");
 	}
+	
+
+
+	
+	@RequestMapping("trainee/{traineeId}/foto")
+	public ResponseEntity<byte[]> getFotoByTraineeId(@PathVariable("traineeId") long traineeId) {
+		return service.getFotoByTraineeId(traineeId);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value= "/trainee/{trainee_Id}/create/foto")
+	public Foto createFotoForTrainee(@PathVariable("trainee_Id") long traineeId,@RequestPart("data") MultipartFile file) {
+	    return service.createTraineeFotoByTraineeId(traineeId, file);
+	}
+	
+	
+	
+	
 
 }
