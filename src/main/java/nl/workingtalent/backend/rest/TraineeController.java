@@ -48,6 +48,7 @@ public class TraineeController {
 			if (updateTrainee.getSpecialisatie() != null) dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
 			if (updateTrainee.getWoonplaats() != null) dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
 			if (updateTrainee.getBio() != null) dbTrainee.setBio(updateTrainee.getBio());
+			if (updateTrainee.getStatus() != null) dbTrainee.setStatus(updateTrainee.getStatus());
 
 			//stap 3 -opslaan
 
