@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 
 
@@ -30,6 +31,15 @@ public class Trainee {
 	@ManyToOne
 	 private TalentManager talentManager;
 	
+	@OneToOne
+	private Foto foto;
+	
+	public Foto getFoto() {
+		return foto;
+	}
+	public void setFoto(Foto foto) {
+		this.foto = foto;
+	}
 	public TalentManager getTalentManager() {
 		return talentManager;
 	}

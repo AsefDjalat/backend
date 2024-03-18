@@ -35,7 +35,7 @@ public class TalentManager {
 		@Column(nullable = false)
 		private int leeftijd;
 		
-		@OneToMany(mappedBy = "talentManager", cascade = CascadeType.ALL)
+		@OneToMany(mappedBy = "talentManager")
 		@JsonIgnore
 		 private List<Trainee> trainee;
 		
