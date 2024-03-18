@@ -10,7 +10,7 @@ enum Status {
 	Beschikbaar,
 	Gesprek,
 	Geplaatst
-};
+}
 
 
 @Entity
