@@ -5,7 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+enum Status {
 
+	Beschikbaar,
+	Gesprek,
+	Geplaatst
+};
 
 
 @Entity
@@ -25,7 +30,17 @@ public class Trainee {
 	private String bio;
 	@Column(nullable = false)
 	private int leeftijd;
-	
+	@Column(nullable = false)
+	private Status status = Status.Beschikbaar; // Set default status here
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	public long getId() {
 		return id;
 	}
