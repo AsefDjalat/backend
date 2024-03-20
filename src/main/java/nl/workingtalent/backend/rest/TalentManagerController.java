@@ -27,6 +27,11 @@ public class TalentManagerController {
 		return service.findAllTalentmanagers();	
 	}
 	
+	
+	@RequestMapping("talentmanager/{id}")
+	public Optional<TalentManager> findById(@PathVariable ("id") long id){
+		return service.findById(id);
+	}
 	@RequestMapping(method = RequestMethod.POST, value="talentmanager/create")
 	public TalentManager create(@RequestBody TalentManager newTalentManager) {
 		return service.create(newTalentManager);
