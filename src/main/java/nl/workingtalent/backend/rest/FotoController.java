@@ -38,8 +38,12 @@ public class FotoController {
 	
 	@RequestMapping(method = RequestMethod.POST, value="foto/create")
 	public Foto create(@RequestPart("data") MultipartFile file)throws IOException{
+		System.out.println("abc");
+		System.out.println(file.getOriginalFilename());
+		System.out.println(file.getContentType());
+		System.out.println(file.getBytes());
 		return fotoService.save(file.getOriginalFilename(),file.getContentType(), file.getBytes());
-	
+
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value="foto/{id}/delete")
