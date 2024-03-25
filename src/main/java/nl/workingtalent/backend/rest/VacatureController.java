@@ -63,8 +63,8 @@ public void update(@PathVariable("id") long id, @RequestBody Vacature updateVaca
 		    if (updateVacature.getTypeWerk() != null) {
 		        dbVacature.setTypeWerk(updateVacature.getTypeWerk());
 		    }
-		    if (updateVacature.getUitStroomrichting() != null) {
-		        dbVacature.setUitStroomrichting(updateVacature.getUitStroomrichting());
+		    if (updateVacature.getDeStatusVacature() != null) {
+		        dbVacature.setDeStatusVacature(updateVacature.getDeStatusVacature());
 		    }
 		    if (updateVacature.getAantalUren() != 0) {
 		        dbVacature.setAantalUren(updateVacature.getAantalUren());

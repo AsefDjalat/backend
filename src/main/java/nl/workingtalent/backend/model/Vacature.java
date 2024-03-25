@@ -1,6 +1,6 @@
 package nl.workingtalent.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
-
+enum UitStroomRichting {
+    DevOps,
+    Java,
+    BigData,
+    LowCode,
+    InformatieAnalyst,
+    CSharp,
+    SoftwareTester,
+    NietGekozen
+}
 
 @Entity
 public class Vacature {
@@ -27,7 +36,8 @@ public class Vacature {
 	
 	private String typeWerk;
 	
-	private String uitStroomrichting;
+	@Column(nullable = false)
+	private UitStroomRichting uitStroomRichting = UitStroomRichting.NietGekozen;
 	
 	private int aantalUren;
 	@ManyToOne
@@ -88,12 +98,16 @@ public class Vacature {
 	public void setTypeWerk(String typeWerk) {
 		this.typeWerk = typeWerk;
 	}
-	public String getUitStroomrichting() {
-		return uitStroomrichting;
+
+
+	public UitStroomRichting getUitStroomRichting() {
+		return uitStroomRichting;
 	}
-	public void setUitStroomrichting(String uitStroomrichting) {
-		this.uitStroomrichting = uitStroomrichting;
+
+	public void setUitStroomRichting(UitStroomRichting uitStroomRichting) {
+		this.uitStroomRichting = uitStroomRichting;
 	}
+
 	public int getAantalUren() {
 		return aantalUren;
 	}

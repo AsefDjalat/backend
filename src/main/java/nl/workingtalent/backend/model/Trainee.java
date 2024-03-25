@@ -5,12 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+
+import jakarta.persistence.OneToOne;
+
 enum Status {
+
 
 	Beschikbaar,
 	Gesprek,
 	Geplaatst
-};
+}
 
 
 @Entity
@@ -26,10 +31,28 @@ public class Trainee {
 	private String specialisatie;
 	@Column(length = 100, nullable = false)
 	private String woonplaats;
-	@Column(length = 2500 , nullable = false)
+	@Column(length =60000 , nullable = false)
 	private String bio;
+	@Column(length =60000 , nullable = false)
+	private String bio_long;
+
+
+
 	@Column(nullable = false)
 	private int leeftijd;
+
+	
+
+	
+	@OneToOne
+	private Foto foto;
+	
+	public Foto getFoto() {
+		return foto;
+	}
+	public void setFoto(Foto foto) {
+		this.foto = foto;
+	}
 	@Column(nullable = false)
 	private Status status = Status.Beschikbaar; // Set default status here
 
@@ -39,6 +62,14 @@ public class Trainee {
 
 	public void setStatus(Status status) {
 		this.status = status;
+
+	}
+	public String getBio_long() {
+		return bio_long;
+	}
+
+	public void setBio_long(String bio_long) {
+		this.bio_long = bio_long;
 	}
 
 	public long getId() {
