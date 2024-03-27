@@ -31,9 +31,10 @@ public class TraineeController {
 	@RequestMapping(method = RequestMethod.POST, value= "trainee/create")
 	public Trainee create(@RequestBody Trainee newTrainee) {
 		return service.create(newTrainee);
-		
-		
 	}
+
+
+
 	@RequestMapping(method = RequestMethod.PUT, value = "trainee/{id}/update")
 	public void update(@PathVariable("id") long id, @RequestBody Trainee updateTrainee) {
 		//stap 1 - bestand selecteren/openen
@@ -48,6 +49,7 @@ public class TraineeController {
 			if (updateTrainee.getSpecialisatie() != null) dbTrainee.setSpecialisatie(updateTrainee.getSpecialisatie());
 			if (updateTrainee.getWoonplaats() != null) dbTrainee.setWoonplaats(updateTrainee.getWoonplaats());
 			if (updateTrainee.getBio() != null) dbTrainee.setBio(updateTrainee.getBio());
+			if (updateTrainee.getBio_long() != null) dbTrainee.setBio_long(updateTrainee.getBio_long());
 			if (updateTrainee.getStatus() != null) dbTrainee.setStatus(updateTrainee.getStatus());
 
 			//stap 3 -opslaan
@@ -73,9 +75,9 @@ public class TraineeController {
 	public Foto createFotoForTrainee(@PathVariable("trainee_Id") long traineeId,@RequestPart("data") MultipartFile file) {
 	    return service.createTraineeFotoByTraineeId(traineeId, file);
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

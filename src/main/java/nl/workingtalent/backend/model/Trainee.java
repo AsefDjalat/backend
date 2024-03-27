@@ -31,8 +31,13 @@ public class Trainee {
 	private String specialisatie;
 	@Column(length = 100, nullable = false)
 	private String woonplaats;
-	@Column(length = 2500 , nullable = false)
+	@Column(length =16000 , nullable = false)
 	private String bio;
+	@Column(length =16000 , nullable = false)
+	private String bio_long;
+
+
+
 	@Column(nullable = false)
 	private int leeftijd;
 
@@ -58,6 +63,13 @@ public class Trainee {
 	public void setStatus(Status status) {
 		this.status = status;
 
+	}
+	public String getBio_long() {
+		return bio_long;
+	}
+
+	public void setBio_long(String bio_long) {
+		this.bio_long = bio_long;
 	}
 
 	public long getId() {
