@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import jakarta.persistence.EntityNotFoundException;
+import nl.workingtalent.backend.model.Bedrijf;
 import nl.workingtalent.backend.model.TalentManager;
 import nl.workingtalent.backend.model.Trainee;
 
@@ -77,4 +79,35 @@ public class TalentManagerService {
 	
 
 }
+
+	public TalentManager createTraineeForATalentManager(long talentManagerId, Trainee trainee) {
+		Optional<TalentManager> talentManagerOpt = repo.findById(talentManagerId);
+        if (talentManagerOpt.isPresent()) {
+            TalentManager talentManager = talentManagerOpt.get();
+           
+            Trainee savedTrainee = repoTrainee.save(trainee);
+            talentManager.getTrainee().add(savedTrainee);
+            repo.save(talentManager);
+            return talentManager;
+        } else {
+       
+            throw new EntityNotFoundException("TalentManager with ID " + talentManagerId + " not found");
+        }
+	}
+
+
+
+	public List<Trainee> getTraineesForTalentManager(long talentManagerId) {
+		// TODO Auto-generated method stub
+		Optional<TalentManager> optionalTalentManager = repo.findById(talentManagerId);
+	    
+	    if (optionalTalentManager.isPresent()) {
+	        TalentManager talentManager = optionalTalentManager.get();
+	        return talentManager.getTrainee(); 
+	    } else {
+	        throw new EntityNotFoundException("TalentManager with ID " + talentManagerId + " not found.");
+	    }
+	}
+
+
 }

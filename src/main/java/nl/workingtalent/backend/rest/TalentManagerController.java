@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import nl.workingtalent.backend.model.Bedrijf;
 import nl.workingtalent.backend.model.TalentManager;
 import nl.workingtalent.backend.model.Trainee;
 import nl.workingtalent.backend.persist.TalentManagerService;
@@ -75,5 +78,30 @@ public class TalentManagerController {
 		
 	    return service.createTraineeForTalentManager(talentManagerId, traineeId);
 	}
+	
+	
+	@RequestMapping(method = RequestMethod.POST, value= "/talentmanager/{talentManager_Id}/trainee")
+	public ResponseEntity<?> createTraineeForATalentManager(@PathVariable("talentManager_Id") long talentManagerId, @RequestBody Trainee trainee) {
+	    try {
+	        TalentManager updatedTalentManager = service.createTraineeForATalentManager(talentManagerId, trainee);
+	        return new ResponseEntity<>(updatedTalentManager, HttpStatus.OK);
+	    } catch (Exception e) {
+	        return new ResponseEntity<>("Error associating trainee with talent manager", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
+
+
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/talentmanager/{talentManager_Id}/trainees")
+	public ResponseEntity<?> getTraineesForTalentManager(@PathVariable("talentManager_Id") long talentManagerId) {
+	    try {
+	        List<Trainee> trainees = service.getTraineesForTalentManager(talentManagerId);
+	        return new ResponseEntity<>(trainees, HttpStatus.OK);
+	    } catch (Exception e) {
+	        return new ResponseEntity<>("Error retrieving trainees for talent manager", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	}
+
+
 
 }
