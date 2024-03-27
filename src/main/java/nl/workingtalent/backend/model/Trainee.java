@@ -31,9 +31,9 @@ public class Trainee {
 	private String specialisatie;
 	@Column(length = 100, nullable = false)
 	private String woonplaats;
-	@Column(length =60000 , nullable = false)
+	@Column(length =16000 , nullable = false)
 	private String bio;
-	@Column(length =60000 , nullable = false)
+	@Column(length =16000 , nullable = false)
 	private String bio_long;
 
 
